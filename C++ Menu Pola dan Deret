@@ -1,0 +1,116 @@
+bool prima(int n) {
+  if (n < 2) return false;
+  for (int i = 2; i * i <= n; i++) {
+    if (n % i == 0)
+      return false;
+  }
+  return true;
+}
+
+int main() {
+  int pilih;
+  do {
+    cout << "Menu Pola dan Deret\n";
+    cout << "1. Deret Kelipatan 3\n";
+    cout << "2. Deret Ganjil Genap\n";
+    cout << "3. Deret Prima\n";
+    cout << "4. Deret Fibonacci\n";
+    cout << "5. Pola Segitiga Terbalik\n";
+    cout << "6. Lagu Anak Ayam\n";
+    cout << "0. Keluar\n";
+    cout << "Pilih Menu: ";
+    cin >> pilih;
+
+    switch (pilih) {
+      
+      case 1 : {
+        int awal, akhir, i;
+        cout << "Masukkan bil. awal: "; cin >> awal;
+        cout << "Masukkan bil. akhir: "; cin >> akhir;
+        for (i = 1; i <=akhir; i++) {
+          if (i % 3 == 0) {
+            cout << i << " ";
+          }
+        }
+        cout << endl;
+      break;
+      }
+
+      case 2 : {
+        int awal, akhir;
+        cout << "Masukkan bil. awal: "; cin >> awal;
+        cout << "Masukkan bil. akhir: "; cin >> akhir;
+        while (awal <= akhir) {
+          if (awal % 2 == 0) {
+            cout << awal << " Genap\n";
+          } else {
+            cout << awal << " Ganjil\n";
+          }
+          awal++;
+        }
+      break;
+      }
+
+      case 3 : {
+        int batas;
+        cout << "Masukkan bilangan : "; cin >> batas;
+        for (int i = 2; i <= batas; i++) {
+          if (prima(i)) {
+            cout << i << " ";
+          }
+        }
+        cout << endl;
+      break;
+      }
+
+      case 4 : {
+        int n, a = 0, b = 1, next;
+        cout << "Masukkan bilangan : "; cin >> n;
+        for (int i = 1; i <= n; i++) {
+          cout << a << " ";
+          next = a + b;
+          a = b;
+          b = next;
+        }
+        cout << endl;
+      break;
+      }
+
+      case 5 : {
+        int n;
+        cout << "Masukkan bilangan : "; cin >> n;
+        for (int i = n; i >= 1; i--) {
+          for (int j = 1; j <= i; j++){
+            cout << j;
+          }
+          cout << endl;
+        }
+      break;
+      }
+
+      case 6 : {
+        int ayam;
+        cout << "Masukkan Jumlah Ayam : "; cin >> ayam;
+        for (int i = ayam; i >= 1; i--) {
+          if (i == 1) {
+            cout << "Anak ayam turun 1, mati 1 tinggal induknya\n";
+          } else {
+            cout << "Anak ayam turun " << i << ", mati 1 tinggal " << i - 1 << endl;
+          }
+        }
+      break;
+      }
+
+      case 0 : {
+        cout << "Program Selesai\n";
+      break;
+      }
+
+      default : {
+        cout << "Pilihan tidak tersedia!\n\n";
+      }
+      
+    }
+  }
+  while (pilih != 0);
+}
