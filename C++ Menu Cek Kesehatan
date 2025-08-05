@@ -1,0 +1,75 @@
+int pilih;
+do {
+  cout << "Menu Cek Kesehatan\n";
+  cout << "1. Cek Kesehatan Tubuh Berdasarkan Suhu\n";
+  cout << "2. Cek Ukuran Baju Berdasarkan Berat Badan\n";
+  cout << "3. Hitung dan Klasifikasi BMI\n";
+  cout << "0. Keluar\n";
+  cout << "Piliih Menu: ";
+  cin >> pilih;
+
+  switch (pilih) {
+    case 1 : {
+      float suhu;
+      cout << "Masukkan suhu tubuh: "; cin >> suhu;
+      if (suhu >= 39) {
+        cout << "Anda Demam Tinggi\n\n";
+      } else if (suhu >= 37.5) {
+        cout << "Anda Demam Ringan\n\n";
+      } else if (suhu >= 36) {
+        cout << "Anda Normal\n\n";
+      } else {
+        cout << "Suhu Anda Terlalu Rendah\n\n";
+      }
+      break;
+    }
+
+    case 2 : {
+      float berat;
+      cout << "Masukkan berat badan: "; cin >> berat;
+      if (berat >= 110) {
+        cout << "Ukuran Baju Anda XXL\n\n";
+      } else if (berat >= 90) {
+        cout << "Ukuran Baju Anda XL\n\n";
+      } else if (berat >= 70) {
+        cout << "Ukuran Baju Anda L\n\n";
+      } else if (berat >= 50) {
+        cout << "Ukuran Baju Anda M\n\n";
+      } else {
+        cout << "Ukuran Baju Anda S\n\n";
+      }
+      break;
+    }
+
+    case 3 : {
+      float berat, tinggi, bmi;
+      cout << "Masukkan berat badan (kg): "; cin >> berat;
+      cout << "Masukkan tinggi badan (cm): "; cin >> tinggi;
+      tinggi /= 100;
+      bmi = berat / (tinggi * tinggi);
+      cout << "BMI Anda: " << bmi << " ";
+      if (bmi >= 30) {
+        cout << "Obesitas\n\n";
+      } else if (bmi >= 25 && bmi < 30) {
+        cout << "Overweight\n\n";
+      } else if (bmi >= 18.5 && bmi <25) {
+        cout << "Normal\n\n";
+      } else {
+        cout << "Underweight\n\n";
+      }
+      break;
+    }
+
+    case 0 : {
+      cout << "Terima Kasih\n";
+      break;
+    }
+
+    default : {
+      cout << "Pilihan tidak tersedia!\n\n";
+    }
+
+  }
+
+}
+  while (pilih != 0);
